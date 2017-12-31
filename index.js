@@ -19,9 +19,10 @@ Array.prototype.myFilter = function (callback) {
   return arr
 }
 
-const female = users.myFilter(user => {
-  return user.gender === 'female'
-})
+// const isFemale = user => user.gender === 'female'
+const isMale = user => user.gender === 'male'
+
+const male = users.myFilter(isMale)
 
 
-console.log(female)
+console.log(male)
