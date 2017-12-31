@@ -9,10 +9,19 @@ const users = [
   }
 ]
 
-let arr = []
+Array.prototype.myFilter = function (callback) {
+  let arr = []
 
-for (let i = 0; i < users.length; i++) {
-  if (users[i].gender === 'female') arr.push(users[i])
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i])) arr.push(this[i])
+  }
+
+  return arr
 }
 
-console.log(arr)
+const female = users.myFilter(user => {
+  return user.gender === 'female'
+})
+
+
+console.log(female)
